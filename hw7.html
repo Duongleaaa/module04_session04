@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //tạo một khuôn đối tượng
+      class Contacts {
+        constructor(name, phone, email) {
+          this.name = name;
+          this.email = email;
+          this.phone = phone;
+        }
+      }
+
+      //	Tạo một biến phoneBooks là một mảng rỗng để lưu trữ các liên hệ.
+      let phoneBooks = [];
+
+      //	Viết một hàm addContact() nhận vào các thông tin
+      // của một liên hệ (tên, số điện thoại, email) và thêm liên hệ đó vào danh bạ.
+      let addContact = (name, phone, email, arr, callbackDisplay) => {
+        //lấy dữ liệu từ người dùng
+        name = prompt("Mời nhập tên liên hệ!");
+        phone = prompt("Mời nhập số điện thoại!");
+        email = prompt("Mời nhập email!");
+        //tạo đối tượng
+        let contactN = new Contacts(name, phone, email);
+        // đẩy đối tượng vừa tạp vào mảng
+        arr.push(contactN);
+        // gọi lại hàm display
+        displayContact(arr);
+      };
+      //	Viết một hàm displayContact() để hiển thị tất cả các liên hệ trong
+      // danh bạ trên màn hình console của trình duyệt.
+      let displayContact = (arr) => {
+        arr.forEach((e, i, arr) => {
+          console.log(e);
+        });
+      };
+
+      addContact("", "", "", phoneBooks, displayContact);
+    </script>
+  </body>
+</html>
